@@ -1,0 +1,21 @@
+<header class="site-header">
+    <div class="container header-container">
+        <div class="logo">
+            <a href="{{ url_for('index') }}">HotelBooking</a>
+        </div>
+
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="{{ url_for('index') }}">Trang chủ</a></li>
+                <li><a href="#">Khách sạn</a></li>
+                <li><a href="#">Ưu đãi</a></li>
+                <li><a href="#">Liên hệ</a></li>
+            </ul>
+        </nav>
+
+        <div class="auth-buttons">
+            <a href="{{ url_for('dang_nhap') }}" class="btn btn-login">Đăng nhập</a>
+            <a href="{{ url_for('dang_ky') }}" class="btn btn-register">Đăng ký</a>
+        </div>
+    </div>
+</header>

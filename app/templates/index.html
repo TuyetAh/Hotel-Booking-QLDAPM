@@ -1,12 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Trang chu</title>
-    <link rel="stylesheet"  href="{{ url_for('static', filename='css/styles.css') }}"/>
-</head>
-<body>
-    <h1>ABCXYZ</h1>
+{% extends 'layout/base.html' %}
 
-</body>
-</html>
+{% block title %}Trang chủ - Hotel Booking{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <h1>Chào mừng đến với hệ thống đặt phòng khách sạn</h1>
+        <p>Tìm kiếm khách sạn phù hợp, đặt phòng nhanh chóng và tiện lợi.</p>
+
+        <div class="hero-buttons">
+            <a href="{{ url_for('dang_ky') }}" class="btn btn-primary">Bắt đầu ngay</a>
+            <a href="{{ url_for('dang_nhap') }}" class="btn btn-secondary">Đăng nhập</a>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2>Tính năng nổi bật</h2>
+
+        <div class="feature-list">
+            <div class="feature-item">
+                <h3>Tìm kiếm khách sạn</h3>
+                <p>Dễ dàng tìm khách sạn theo thành phố, địa điểm và nhu cầu.</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>Đặt phòng trực tuyến</h3>
+                <p>Thao tác nhanh gọn, tiện lợi và tiết kiệm thời gian.</p>
+            </div>
+
+            <div class="feature-item">
+                <h3>Quản lý thông tin</h3>
+                <p>Hỗ trợ khách hàng, chủ khách sạn và quản trị viên.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
