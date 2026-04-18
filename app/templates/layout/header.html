@@ -1,21 +1,27 @@
-<header class="site-header">
-    <div class="container header-container">
+<header class="topbar">
+    <div class="container topbar-inner">
         <div class="logo">
-            <a href="{{ url_for('index') }}">HotelBooking</a>
+            <a href="{{ url_for('index') }}">HOTEL BOOKING</a>
         </div>
 
-        <nav class="navbar">
-            <ul class="nav-list">
-                <li><a href="{{ url_for('index') }}">Trang chủ</a></li>
-                <li><a href="#">Khách sạn</a></li>
-                <li><a href="#">Ưu đãi</a></li>
-                <li><a href="#">Liên hệ</a></li>
-            </ul>
+        <nav class="main-nav">
+            <a href="{{ url_for('index') }}">Lưu trú</a>
+            <a href="#">Điểm đến</a>
+            <a href="#">Ưu đãi</a>
+            <a href="#">Hỗ trợ</a>
         </nav>
 
-        <div class="auth-buttons">
-            <a href="{{ url_for('dang_nhap') }}" class="btn btn-login">Đăng nhập</a>
-            <a href="{{ url_for('dang_ky') }}" class="btn btn-register">Đăng ký</a>
+        <div class="topbar-actions">
+            <a href="#" class="top-link">VND</a>
+            <a href="#" class="icon-btn"><i class="fa-solid fa-globe"></i></a>
+
+            {% if current_user %}
+                <a href="#" class="top-link">Xin chào, {{ current_user.HoTen }}</a>
+                <a href="{{ url_for('dang_xuat') }}" class="btn-outline">Đăng xuất</a>
+            {% else %}
+                <a href="#" class="top-link">Đăng chỗ nghỉ của bạn</a>
+                <a href="{{ url_for('dang_nhap') }}" class="btn-dark">Đăng nhập</a>
+            {% endif %}
         </div>
     </div>
 </header>

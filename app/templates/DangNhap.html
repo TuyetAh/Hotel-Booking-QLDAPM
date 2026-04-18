@@ -1,27 +1,35 @@
-{% extends 'layout/base.html' %}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Hotel Booking{% endblock %}</title>
 
-{% block title %}Đăng nhập{% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
 
-{% block content %}
-<section class="auth-section">
-    <div class="container">
-        <div class="auth-box">
-            <h2>Đăng nhập</h2>
+    {% include 'layout/header.html' %}
 
-            <form method="POST">
-                <div class="form-group">
-                    <label for="username">Tên đăng nhập</label>
-                    <input type="text" id="username" name="username" placeholder="Nhập tên đăng nhập">
-                </div>
-
-                <div class="form-group">
-                    <label for="password">Mật khẩu</label>
-                    <input type="password" id="password" name="password" placeholder="Nhập mật khẩu">
-                </div>
-
-                <button type="submit" class="btn btn-primary full-width">Đăng nhập</button>
-            </form>
+    <main class="main-content">
+        <div class="container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
         </div>
-    </div>
-</section>
-{% endblock %}
+
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {% include 'layout/footer.html' %}
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
